@@ -36,7 +36,6 @@ function createGame(e){
     $('.lvl').removeClass('hide')
 
     $('.lvl').on('click', e=>{
-      // console.log(e.target.id)
       switch (e.target.id) {
         case 'Easy':
             level = 2;
@@ -60,8 +59,8 @@ function createGame(e){
 
 function startGame(){
   console.log('withAI ',withAI)
-  // console.log(level ? ('level=',level) : 'level is not defined')
-  level ? console.log('level ' + level) : console.log('level is not defined')
+  console.log(level ? ('level ' + level) : 'level is not defined')
+  // level ? console.log('level ' + level) : console.log('level is not defined')
   origBoard = [0,1,2,3,4,5,6,7,8]
   circleTurn = false;
   $('#winningMesessage').removeClass('show')
@@ -212,10 +211,10 @@ function AI() {
   }
 
   var bestSpot = minimax(origBoard, huPlayer);
-  console.log('bestSpot1=',bestSpot.index)
+  console.log('bestSpot1=' + bestSpot.index)
 
   let i = Math.floor(Math.random() * (level - 0 + 1) + 0)
-  console.log('errorAI=',i)
+  console.log('errorAI' + i)
 
 
   if(i==1){
@@ -226,8 +225,7 @@ function AI() {
     });
     if (s) bestSpot.index=bestSpot.index-1
   }
-  console.log('bestSpot2=',bestSpot.index)
-
+  console.log('bestSpot2=' + bestSpot.index)
 
 
   let currentClass = circleTurn ? circle_class : x_class
@@ -240,9 +238,7 @@ function AI() {
     swapTurns()
     setBoardHoverClass()
     origBoard[bestSpot.index] = "O"
-    console.log('origBoard=',origBoard)
-
+    console.log('origBoard=' + origBoard)
   }
-
 
 }
